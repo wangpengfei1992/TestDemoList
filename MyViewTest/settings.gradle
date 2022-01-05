@@ -1,0 +1,3 @@
+include ':EqualizerView'
+include ':app'
+rootProject.name = "MyViewTest"

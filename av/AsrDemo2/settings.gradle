@@ -1,0 +1,2 @@
+include ':app',':ffmpegcmd',':opus_use',':common'
+rootProject.name = "AsrDemo2"

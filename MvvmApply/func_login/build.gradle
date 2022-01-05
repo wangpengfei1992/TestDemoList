@@ -1,0 +1,26 @@
+if (singleModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply from: "../common.gradle"
+android{
+    defaultConfig{
+        if (singleModule.toBoolean()) {
+            applicationId rootProject.ext.applicationId.func_login
+        }
+    }
+    sourceSets{
+        main{
+            if (singleModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+}
+dependencies {
+    implementation(project(':common'))
+    implementation(project(':func_common'))
+}

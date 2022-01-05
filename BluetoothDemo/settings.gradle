@@ -1,0 +1,3 @@
+include ':spplib'
+include ':app'
+rootProject.name = "BluetoothDemo"

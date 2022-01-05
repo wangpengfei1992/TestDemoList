@@ -1,0 +1,47 @@
+ext {
+
+    defaultConfig = [
+
+            minSdkVersion            : 21,
+            targetSdkVersion         : 30,
+            versionCode              : 12,
+            versionName              : "1.0.0",
+            testInstrumentationRunner: "android.support.test.runner.AndroidJUnitRunner"
+
+    ]
+
+    android = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.2"
+    ]
+
+    resourcePrefixs = [
+            app          : "app_",
+            commonModule : "common_",
+            deviceModule : "device_",
+            userModule   : "user_",
+            noteModule   : "note_",
+            accountModule: "account_",
+            deviceEModule: "deviceE_"
+    ]
+
+    applicationId = [
+            app          : "com.anker.ankerwork",
+            deviceModule : "com.anker.ankerwork.device",
+            userModule   : "com.anker.ankerwork.user",
+            noteModule   : "com.anker.ankerwork.note",
+            accountModule: "com.anker.ankerwork.account",
+            deviceEModule: "com.anker.ankerwork.deviceExport"
+    ]
+
+    dependencies = [
+            constraintlayout    : "androidx.constraintlayout:constraintlayout:2.0.4",
+            corektx             : "androidx.core:core-ktx:1.3.2",
+            lifecycleprocess    : "androidx.lifecycle:lifecycle-process:2.2.0",
+            lifecycleruntime    : "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0",
+            lifecycleviewmodel  : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0",
+            lifecyclelivedata   : "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0",
+            kotlinxcoroutinescore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7",
+            kotlinxcoroutinesandroid   : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7",
+    ]
+}

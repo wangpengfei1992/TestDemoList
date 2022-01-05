@@ -1,0 +1,11 @@
+apply plugin: "com.android.library"
+apply from: "../common.gradle"
+android{
+
+}
+dependencies {
+
+
+    api(project(':common_ui'))
+    api(project(':common_net'))
+}

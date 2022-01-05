@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ProductCode："
+        android:textColor="@color/t1_color" />
+
+    <EditText
+        android:id="@+id/etProductCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1" />
+
+
+    <LinearLayout
+        android:id="@+id/llSpp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="SppUUID："
+            android:textColor="@color/t1_color" />
+
+        <EditText
+            android:id="@+id/etUUID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefABCDEF-"
+            android:singleLine="true"
+            android:text="0CF12D31-FAC3-4553-BD80-D6832E7BXXXX" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ServiceUUID："
+            android:textColor="@color/t1_color" />
+
+        <EditText
+            android:id="@+id/etServiceUUID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefABCDEF-"
+            android:lines="1"
+            android:text="XXXXF5DA-0000-1000-8000-00805F9B34FB" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="WriteCharacteristic："
+            android:textColor="@color/t1_color" />
+
+        <EditText
+            android:id="@+id/etWriteC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefABCDEF-"
+            android:singleLine="true"
+            android:text="00007777-0000-1000-8000-00805F9B34FB" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="NotifyCharacteristic："
+            android:textColor="@color/t1_color" />
+
+        <EditText
+            android:id="@+id/etNotifyC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefABCDEF-"
+            android:singleLine="true"
+            android:text="00008888-0000-1000-8000-00805F9B34FB" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btSave"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_normal_button"
+            android:text="Save"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/shape_accent_button"
+            android:text="Cancel"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

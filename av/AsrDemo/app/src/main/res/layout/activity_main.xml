@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/start_recorde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="去录音"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_pcm_wav"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/start_pcm_wav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pcm转wav"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_ble"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_recorde" />
+    <TextView
+        android:id="@+id/start_ble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ble测试"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_spp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_pcm_wav" />
+
+    <TextView
+        android:id="@+id/start_spp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="spp测试"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/test_file"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_ble" />
+    <TextView
+        android:id="@+id/test_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="文件处理测试"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_spp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/ble_seach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="搜索Ble"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/ble_connect"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/ble_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接Ble"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/ble_send_comond"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ble_seach" />
+    <TextView
+        android:id="@+id/ble_send_comond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送指令"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/ble_show_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ble_connect" />
+    <TextView
+        android:id="@+id/ble_show_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="蓝牙接收内容："
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ble_send_comond" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

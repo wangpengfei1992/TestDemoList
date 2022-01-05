@@ -1,0 +1,3 @@
+include ':common_module'
+include ':app'
+rootProject.name = "StudyWork"

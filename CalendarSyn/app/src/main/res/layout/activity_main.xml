@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/getGoogleCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取Google日历信息"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/getZoomCalendar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/getZoomCalendar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="获取Zoom日历信息"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/getGoogleCalendar"
+        app:layout_constraintRight_toLeftOf="@+id/getOutlookCalendar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.33"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/getOutlookCalendar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="获取Outlook日历信息"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/getZoomCalendar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.33"
+        android:background="@color/teal_200"
+        android:textColor="@color/white"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

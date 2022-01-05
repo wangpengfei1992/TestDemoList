@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.anker.bluetoothtool.view.CommonTitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="设备选择" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/purple_500"
+        app:tabTextColor="@color/t1_color">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiSpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SPP" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiBle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLE" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/other_fuc"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_normal_button"
+            android:text="其他功能"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</LinearLayout>

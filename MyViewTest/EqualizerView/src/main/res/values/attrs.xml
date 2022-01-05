@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="eq_titles_array" translatable="false">
+        <item>80</item>
+        <item>150</item>
+        <item>300</item>
+        <item>500</item>
+        <item>700</item>
+        <item>1k</item>
+        <item>5k</item>
+        <item>8k</item>
+        <item>12KHz</item>
+    </string-array>
+
+
+    <!--eq条形进度条-->
+    <declare-styleable name="EqSquareProgress">
+        <attr name="max"  format="integer"/>
+        <attr name="min"  format="integer"/>
+        <attr name="step"  format="integer"/>
+        <attr name="default_color" format="color" />
+        <attr name="adjusting_color" format="color" />
+        <attr name="adjusted_color" format="color" />
+    </declare-styleable>
+    <!--默认的eq 频率名称-->
+    <!--13段EQ-->
+    <string-array name="eq_titles_13" translatable="false">
+        <item>50Hz</item>
+        <item>80Hz</item>
+        <item>125Hz</item>
+        <item>200Hz</item>
+        <item>315Hz</item>
+        <item>500Hz</item>
+        <item>800Hz</item>
+        <item>1.25KHz</item>
+        <item>2KHz</item>
+        <item>3.15KHz</item>
+        <item>5KHz</item>
+        <item>8KHz</item>
+        <item>12.5KHz</item>
+    </string-array>
+
+    <!--13段EQ频率-->
+    <integer-array name="eq_frequencies">
+        <item>50</item>
+        <item>80</item>
+        <item>125</item>
+        <item>200</item>
+        <item>315</item>
+        <item>500</item>
+        <item>800</item>
+        <item>1250</item>
+        <item>2000</item>
+        <item>3150</item>
+        <item>5000</item>
+        <item>8000</item>
+        <item>12500</item>
+    </integer-array>
+</resources>

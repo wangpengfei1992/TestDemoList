@@ -1,0 +1,4 @@
+include ':common'
+include ':bluetooth'
+include ':app',':ffmpegcmd',':opus_use'
+rootProject.name = "AsrDemo"

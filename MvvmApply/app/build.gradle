@@ -1,0 +1,17 @@
+apply plugin: 'com.android.application'
+apply from: "../common.gradle"
+
+
+android {
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId.app
+
+    }
+
+}
+
+dependencies {
+    implementation(project(':common'))
+    implementation(project(':func_login'))
+}
