@@ -1,2 +1,3 @@
+include ':leecode'
 include ':app'
 rootProject.name = "LeecodeTest"
