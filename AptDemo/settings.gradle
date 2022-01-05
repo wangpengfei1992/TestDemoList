@@ -1,0 +1,7 @@
+include ':mylibrary'
+//include ':app_1'
+include ':apt-sdk'
+include ':apt-processor'
+include ':apt-annotation'
+include ':app'
+rootProject.name = "AptDemo"
