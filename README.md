@@ -17,6 +17,16 @@ FFmpeg库使用Demo
 
 OpusUse库使用Demo
 
+## [WebrtcVadDemo](https://github.com/wangpengfei1992/TestDemoList/tree/main/av/WebrtcVadDemo)
+
+WebrtcVad: vad效果尝试
+
+## [FFmpegAndroid-master](https://github.com/wangpengfei1992/TestDemoList/tree/main/av/FFmpegAndroid-master)
+
+FFmpeg使用学习github上的Demo
+
+
+
 
 
 ## [BluetoothDemo](https://github.com/wangpengfei1992/TestDemoList/tree/main/BluetoothDemo)
