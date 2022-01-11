@@ -13,6 +13,7 @@ import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -21,20 +22,24 @@ import javax.lang.model.element.VariableElement;
 import javax.lang.model.util.Elements;
 import javax.tools.JavaFileObject;
 
-@AutoService(BindView.class)
-@SuppressWarnings("unused")
-public class BindViewProcessor extends AbstractProcessor {
+@AutoService(Processor.class)
+public class BindViewProcessor1 extends AbstractProcessor {
     public Elements mElementUtils;
     public Map<String,ClassCreatorFactory> mClassCreatorFactoryMap = new HashMap<>();
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
+        System.out.print("init\n");
         mElementUtils = processingEnvironment.getElementUtils();
     }
-
+    @Override
+    public SourceVersion getSupportedSourceVersion() {
+        return SourceVersion.latestSupported();
+    }
     @Override
     public Set<String> getSupportedAnnotationTypes() {
+        System.out.print("getSupportedAnnotationTypes\n");
         //这个注解处理器是给哪个注解用的
         HashSet<String> supportType = new LinkedHashSet<>();
         supportType.add(BindView.class.getCanonicalName());
@@ -45,6 +50,7 @@ public class BindViewProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        System.out.print("process\n");
         mClassCreatorFactoryMap.clear();
         Set<? extends Element> elementSet = roundEnvironment.getElementsAnnotatedWith(BindView.class);
         for (Element element:elementSet) {

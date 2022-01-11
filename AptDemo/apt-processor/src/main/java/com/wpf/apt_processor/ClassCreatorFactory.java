@@ -61,7 +61,7 @@ public class ClassCreatorFactory {
             stringBuilder.append(" = ");
             stringBuilder.append("(");
             stringBuilder.append(viewType);
-            stringBuilder.append(")(((android.app.Activity)owner).findViewById( ");
+            stringBuilder.append(")(((androidx.appcompat.app.AppCompatActivity)owner).findViewById( ");
             stringBuilder.append(id);
             stringBuilder.append("));\n");
         }

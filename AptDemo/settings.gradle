@@ -1,4 +1,3 @@
-include ':mylibrary'
 //include ':app_1'
 include ':apt-sdk'
 include ':apt-processor'
