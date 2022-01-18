@@ -2,11 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-apply plugin: 'com.ankerwork.plugin'
-
-productPlugin {
-    pdroductcode 'A3512'
-}
+apply from: "mould_code.gradle"
 
 android {
     compileSdkVersion 30

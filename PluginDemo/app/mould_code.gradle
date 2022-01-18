@@ -1,0 +1,40 @@
+apply plugin: 'com.ankerwork.plugin'
+/*
+productPlugin {
+    pdroductcode 'A3512'
+}*/
+
+makeCodeConfig{
+    def key1 = 'A3512'
+    def key2 = 'A3532'
+    def path1 = "com/wpf/plugindemo/${key1}HelloWorld.kt"
+    def code1 = """package com.wpf.plugindemo
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class ${key1}HelloWorld : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+"""
+
+    def path2 = "com/wpf/plugindemo/${key2}HelloWorld.kt"
+
+    def code2 = """package com.wpf.plugindemo
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class ${key2}HelloWorld : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+"""
+    pathCodes = [[ 'path' :path1,'code':code1],[ "path" :path2,'code':code2]]
+
+}
