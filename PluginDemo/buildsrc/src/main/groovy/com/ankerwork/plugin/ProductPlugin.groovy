@@ -8,6 +8,12 @@ class ProductPlugin implements Plugin<Project> {
     @Override
     void apply(Project target) {
         println("------------groovy----${target.getName()}--------")
+        //task
+        target.task(type:MyTask,"testTask"){
+            doLast {
+                println("执行完testTask")
+            }
+        }
         //do something
         MakeCodeParam makeCodeParam = target.extensions.create("makeCodeConfig", MakeCodeParam)
         target.task('makeCodeTask') {
