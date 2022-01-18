@@ -1,0 +1,48 @@
+plugins {
+    id 'groovy'
+//    id 'java-library'
+}
+sourceSets {
+    main{
+        groovy{
+            srcDir 'src/main/groovy'
+        }
+        java{
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+
+dependencies {
+    implementation gradleApi()
+    //groovy需引用
+    implementation localGroovy()
+
+}
+repositories {
+    google()
+    jcenter()
+}
+
+apply plugin: 'maven'
+repositories.mavenCentral()
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //本地的Maven地址设置为D:/repos
+            def path = rootDir.path+"\\repos"
+            println("路径：："+path)
+            def deployPath = file(path)
+            repository(url: "file:///${deployPath.absolutePath}")
+            pom.project {
+                version '1.0.0'
+                artifactId 'makecode'
+                groupId 'com.ankerwork.plugin'
+            }
+        }
+    }
+}
