@@ -33,13 +33,20 @@ repositories.mavenCentral()
 uploadArchives {
     repositories {
         mavenDeployer {
-            //本地的Maven地址设置为D:/repos
+/*            //本地的Maven地址设置为D:/repos
             def path = rootDir.path+"\\repos"
             println("路径：："+path)
             def deployPath = file(path)
-            repository(url: "file:///${deployPath.absolutePath}")
+            repository(url: "file:///${deployPath.absolutePath}")*/
+
+            //指定maven仓库url
+            repository(url: uri('http://172.16.20.82:8081/repository/maven-releases/')){
+                authentication(userName: "ming.cao", password: "ming.cao")
+            }
+
+
             pom.project {
-                version '1.0.0'
+                version '1.0.1.4'
                 artifactId 'makecode'
                 groupId 'com.ankerwork.plugin'
             }

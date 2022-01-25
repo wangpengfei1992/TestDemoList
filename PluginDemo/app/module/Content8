@@ -1,0 +1,15 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+import com.anker.ankerwork.deviceExport.device.IBaseBtEventCallback
+
+/**
+ *  Author: ankerplugin
+ *  Time:   ${time}
+ *  Description : A${key1}项目的指令回调
+ */
+interface A${key1}EventCallback : IBaseBtEventCallback {
+
+    //第一条为模板生成,根据需要修改
+    fun onDeviceInfo(isSuccess: Boolean, deviceInfo: A${key1}DeviceInfo)
+
+}

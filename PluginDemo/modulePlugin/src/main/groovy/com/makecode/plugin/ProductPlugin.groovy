@@ -16,12 +16,12 @@ class ProductPlugin implements Plugin<Project> {
                 for (int i = 0; i <pathCodeList.size() ; i++) {
                     PathCode pathCode = pathCodeList.get(i)
                     println("需创建文件路径:${pathCode.path}")
-                    File file = new File(pathCode.path)
-                    if (!file.exists()){
-                        file.mkdirs()
+                    def ktPath = "${target.getName()}/${pathCode.path}"
+                    File file = new File(ktPath)
+                    if (!file.parentFile.exists()){
+                        file.parentFile.mkdirs()
                     }
-                    def ktPath = "${target.getName()}/src/main/java/${pathCode.path}"
-                    new File(ktPath).withPrintWriter { printWriter ->
+                    file.withPrintWriter { printWriter ->
                         printWriter.println(pathCode.code)
                     }
                 }

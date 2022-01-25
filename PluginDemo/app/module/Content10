@@ -1,0 +1,27 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+import com.anker.ankerwork.deviceExport.model.ProductModel
+import com.anker.device.R
+
+/**
+ *  Author: feipeng.wang
+ *  Time:   2022/1/14
+ *  Description : A${key1}项目的配置信息类
+ */
+class A${key1}ProductModel : ProductModel() {
+    override var sppUUID: String = "0CF12D31-FAC3-4553-BD80-D6832E7B3511"
+    override var uuidPrefix: String = "1135"
+    override var uuidSuffix: String = "3511"
+
+    override val isOurProduct = true
+
+    override val strId: Int = com.anker.device.R.string.common_product_a3511
+
+    override val lableString: Int = com.anker.device.R.string.common_product_a3511
+
+    override val platIcon: Int = R.drawable.img_homepage_3511
+
+    override val productIcon: Int = R.drawable.img_homepage_3511
+    override val serviceUUID: String = "1135F5DA-${key1}-1000-8000-00805F9B34FB"
+    override val productCode: String = "A3511"
+}

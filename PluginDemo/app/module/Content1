@@ -1,0 +1,54 @@
+package com.anker.device.ui.product.a${key1}
+
+import android.view.View
+import com.anker.common.utils.eventbus.BindEventBus
+import com.anker.device.databinding.DeviceA${key1}HomeFragmentBinding
+import com.anker.device.ui.BaseDeviceHomeFragment
+import com.anker.device.viewmodel.BaseDeviceViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+/**
+ *  Author: feipeng.wang
+ *  Time:   ${time}
+ *  Description : A${key1}项目的主页内容
+ */
+@BindEventBus
+class DeviceA${key1}Fragment : BaseDeviceHomeFragment<DeviceA${key1}HomeFragmentBinding>(), View.OnClickListener {
+
+    private val mViewModel: DeviceA${key1}ViewModel by viewModel()
+
+    override fun getDeviceViewModel(): BaseDeviceViewModel = mViewModel
+
+    override fun onClick(v: View?) {
+
+    }
+
+    override fun onConnectedStateChanged(isConnected: Boolean) {
+
+    }
+
+    override fun onBatteryChanged(battery: Int) {
+
+    }
+
+    override fun onChargingStateChanged(isCharging: Boolean) {
+
+    }
+
+    override fun onMuteStateChanged(isMute: Boolean) {
+
+    }
+
+    override fun onVolumeChanged(volume: Int) {
+
+    }
+
+    override fun getDeviceInfo() {
+
+    }
+
+    override fun toDeviceSetting() {
+
+    }
+
+}
