@@ -1,0 +1,12 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+import com.anker.ankerwork.deviceExport.model.CmmBtDeviceInfo
+
+/**
+ *  Author: ankerplugin
+ *  Time:   ${time}
+ *  Description : A${key1}项目设备信息对象
+ */
+data class A${key1}DeviceInfo(
+        var macAdress: String = "",
+) : CmmBtDeviceInfo()

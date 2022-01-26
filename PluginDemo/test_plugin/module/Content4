@@ -1,0 +1,19 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+/**
+ *  Author: ankerplugin
+ *  Time:   ${time}
+ *  Description : A${key1}项目用的常量
+ */
+object A${key1}CmdConstants {
+
+    //GROUP字节标识---模板生成,根据需要修改
+    const val COMMAND_GROUP_DEVICE = 0x01.toByte()
+
+    //设备全部信息---模板生成,根据需要修改
+    val GET_DEVICE_INFO = byteArrayOf(
+            0x08.toByte(), 0xEE.toByte(), 0x00.toByte(),
+            0x00.toByte(), 0x00.toByte(), 0x01.toByte(), 0x01.toByte()
+    )
+
+}

@@ -1,0 +1,44 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+import android.os.Message
+import com.anker.ankerwork.deviceExport.device.BaseBtDispatch
+import com.anker.ankerwork.deviceExport.device.BaseDeviceManager
+import com.anker.ankerwork.deviceExport.device.BtDeviceCommand
+import com.anker.ankerwork.deviceExport.model.ReceiveDataDispatchBean
+import com.anker.common.utils.LogUtil
+
+/**
+ *  Author: ankerplugin
+ *  Time:   ${time}
+ *  Description : A${key1}项目蓝牙设备指令回调到主页，每添加一个指令，都需要添加一个回调
+ */
+class A${key1}Dispatch(dIEventCallback: List<A${key1}EventCallback>, private val cmd: BtDeviceCommand) :
+        BaseBtDispatch<A${key1}EventCallback>(dIEventCallback) {
+    override fun handleCmdMessage(msg: Message) {
+        if (msg.obj is ReceiveDataDispatchBean) {
+            val response = msg.obj as ReceiveDataDispatchBean
+            val commandGroup = msg.what
+            val isSuccess = response.success
+            LogUtil.e(TAG, "A${key1}Dispatch:::${commandGroup}")
+            //todo 各自项目事件分发处理
+            val callBack = copyEventCallbcks()
+            callBack.forEach { callBack ->
+                when (commandGroup.toByte()) {
+                    A${key1}CmdConstants.COMMAND_GROUP_DEVICE -> {
+                        val deviceInfo = response.info as A${key1}DeviceInfo
+                        when (response.commandId) {
+                            //第一条为模板生成,根据需要修改
+                            A${key1}CmdConstants.GET_DEVICE_INFO[BaseDeviceManager.COMMAND_ID_POSITION] -> callBack.onDeviceInfo(isSuccess, deviceInfo)
+
+                        }
+                    }
+                }
+            }
+        } else {
+            //无需修改
+            cmd.clearMmiQueue()
+            dispatchTimeOut(msg.what, msg.obj as String)
+        }
+    }
+
+}

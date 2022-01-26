@@ -1,3 +1,4 @@
+include ':test_plugin'
 include ':modulePlugin'
 include ':app'
 rootProject.name = "PluginDemo"

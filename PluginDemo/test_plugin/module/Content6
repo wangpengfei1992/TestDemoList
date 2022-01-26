@@ -1,0 +1,136 @@
+package com.anker.device.ui.product.a${key1}.bluetooth
+
+import com.anker.ankerwork.deviceExport.device.BaseDMWithDispatch
+import com.anker.ankerwork.deviceExport.device.CheckSumUtil
+import com.anker.ankerwork.deviceExport.device.ParseData
+import com.anker.ankerwork.deviceExport.device.SppDataInfo
+import com.anker.ankerwork.deviceExport.model.ReceiveDataDispatchBean
+import com.anker.ankerwork.deviceExport.util.BytesUtil
+import com.anker.common.utils.LogDeviceE
+import com.anker.common.utils.LogUtil
+
+/**
+ *  Author: ankerplugin
+ *  Time:   ${time}
+ *  Description : A${key1}项目设备管理类
+ */
+class A${key1}DeviceManager private constructor() : BaseDMWithDispatch<A${key1}EventCallback, A${key1}Dispatch>() {
+
+    companion object {
+        val instance: A${key1}DeviceManager by lazy { A${key1}DeviceManager() }
+
+    }
+
+    override fun getDispatch(): A${key1}Dispatch = A${key1}Dispatch(mDIEventCallback, commandLink)
+
+    val deviceInfo by lazy { A${key1}DeviceInfo() }
+
+    /**
+     * 获取设备信息
+     */
+    override fun getDeviceInfo() {
+        sendGetCommand(A${key1}CmdConstants.GET_DEVICE_INFO)
+    }
+
+    /*校验处理返回的数据*/
+    override fun dispatch(data: ByteArray?, length: Int) {
+        LogDeviceE.e("A${key1}DeviceManager,dispatch length = $length")
+        if (data == null || data.size < length) {
+            return
+        }
+        if (mDataInfo == null) {
+            mDataInfo = SppDataInfo()
+        }
+        mDataInfo!!.curReveiveData = BytesUtil.cutOutBytes(data, 0, length)
+        //拆分包，处理粘包问题
+        val parseResult = ParseData.parseDataToSegment(mDataInfo!!)
+        if (!parseResult) {
+            return
+        }
+        mDataInfo!!.eventListArr?.run {
+            val it: Iterator<ByteArray?> = this.iterator()
+            while (it.hasNext()) {
+                val subData = it.next()
+                val hexString = BytesUtil.bytesToHexString(subData, subData!!.size)
+                LogDeviceE.e(hexString)
+                //检测代码checksum值是否正常
+                val isLegally = CheckSumUtil.isLegallyCmd(subData)
+                if (subData.size < MIN_CMD_LENGTH || !isLegally) {
+                    LogDeviceE.e("receive illegal data")
+                    continue
+                }
+                val successFlag = 0x01.toByte()
+                val success = subData[SUCCESS_FLAG] == successFlag
+                val commandGroup = subData[GROUP_ID_POSITION]
+                val commandId = subData[COMMAND_ID_POSITION]
+                cmdDataCallback(subData)
+                mDispatch.removeTimeOutCallback(commandGroup, commandId)
+                when (commandGroup) {
+                    A${key1}CmdConstants.COMMAND_GROUP_DEVICE -> dispatchDeviceInfo(
+                            commandGroup,
+                            commandId,
+                            success,
+                            subData
+                    )
+                }
+            }
+        }
+    }
+
+    /**
+     * 设备上报的所有数据的输出
+     * @param buff
+     */
+    private fun cmdDataCallback(buff: ByteArray) {
+        for (mc in mDIEventCallback) {
+            mc.receiveCmd(buff)
+        }
+    }
+
+    /**
+     * 分发COMMAND_GROUP_DEVICE的指令解析结果
+     */
+    private fun dispatchDeviceInfo(commandGroup: Byte, commandId: Byte, success: Boolean, buff: ByteArray?) {
+        var success = success
+        val deviceInfoMiniLength = 10
+        if (buff == null || buff.size < deviceInfoMiniLength) {
+            LogDeviceE.d("getDeviceInfoCallback illegal data" + buff!!.size)
+            success = false
+        }
+        if (success) {
+            //额外赋值
+            analyzeDeviceInfo(commandId, buff, success)
+        }
+        val response = ReceiveDataDispatchBean(
+                commandGroup.toInt(), commandId, success,
+                deviceInfo
+        )
+        mDispatch.sendDispatchMsg(response)
+    }
+
+    /**
+     * 设备反馈的COMMAND_GROUP_DEVICE的指令解析
+     */
+    private fun analyzeDeviceInfo(commandId: Byte, buff: ByteArray, success: Boolean) {
+        var i = CMD_DATA_FIRST_P
+        if (commandId == A${key1}CmdConstants.GET_DEVICE_INFO[COMMAND_ID_POSITION]) {
+            parseA${key1}DeviceInfo1(buff)
+        }
+    }
+
+
+    private fun parseA${key1}DeviceInfo1(buff: ByteArray): Boolean {
+        //开始解析的下标
+        var i = CMD_DATA_FIRST_P
+        /*
+        假设第一位是电量
+        deviceInfo.battery = BytesUtil.byteToInt(buff[i++])
+        */
+
+
+        LogUtil.e(TAG, deviceInfo.toString())
+        return true
+    }
+
+
+}

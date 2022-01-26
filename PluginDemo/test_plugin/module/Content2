@@ -1,0 +1,20 @@
+package com.anker.device.ui.product.a${key1}
+
+import com.anker.ankerwork.deviceExport.device.BaseDeviceManager
+import com.anker.ankerwork.deviceExport.model.CmmBtDeviceInfo
+import com.anker.device.repository.DeviceRepository
+import com.anker.device.ui.product.a${key1}.bluetooth.A${key1}Content6
+import com.anker.device.viewmodel.DeviceOtaViewModel
+
+/**
+ *  Author: feipeng.wang
+ *  Time:   ${time}
+ *  Description : A${key1}viewmodel,可以把获取数据逻辑、耗时操作放到这来
+ */
+class DeviceA${key1}ViewModel(private val rep: DeviceRepository) : DeviceOtaViewModel(rep) {
+    val deviceManager = A${key1}Content6.instance
+    override fun getDeviceManager(): BaseDeviceManager = deviceManager
+
+    override fun getConnectDeviceInfo(): CmmBtDeviceInfo = deviceManager.deviceInfo
+
+}
