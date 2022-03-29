@@ -46,7 +46,7 @@ uploadArchives {
 
 
             pom.project {
-                version '1.0.5'
+                version '1.0.1'
                 artifactId 'makecode'
                 groupId 'com.anker.plugin'
             }

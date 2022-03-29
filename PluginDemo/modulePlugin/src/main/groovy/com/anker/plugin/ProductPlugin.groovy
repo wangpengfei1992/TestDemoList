@@ -17,7 +17,7 @@ class ProductPlugin implements Plugin<Project> {
 
                 for (int i = 0; i < pathCodeList.size(); i++) {
                     PathCode pathCode = pathCodeList.get(i)
-                    String configPath = replaceConfigContent(pathCode.path,keyList,values)
+                    String configPath = replaceConfigContent(pathCode.path, keyList, values)
                     println("需创建文件路径:${configPath}")
 
                     def ktPath = "${configPath}"
@@ -27,7 +27,7 @@ class ProductPlugin implements Plugin<Project> {
                     }
                     file.withPrintWriter { printWriter ->
                         def modulePath = "${pathCode.code}"
-                        println("写入的文件:${modulePath}")
+//                        println("写入的文件:${modulePath}")
                         printWriter.println(loadConfig(modulePath, keyList, values))
                     }
                 }

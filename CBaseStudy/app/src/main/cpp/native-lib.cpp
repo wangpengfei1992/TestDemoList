@@ -1,6 +1,6 @@
 #include <jni.h>
 #include <string>
-#include "test/helloword.h"
+#include "c1test/helloword.h"
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_wpf_cbasestudy_MainActivity_stringFromJNI(
         JNIEnv* env,
