@@ -16,6 +16,13 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <!--ankerwork://test/startapp?data=123456-->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="ankerwork"
+                    android:host="test"
+                    android:path="/startapp"> </data>
             </intent-filter>
         </activity>
     </application>

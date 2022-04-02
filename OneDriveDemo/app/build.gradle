@@ -18,7 +18,7 @@ android {
     }
     signingConfigs{
         release {
-            storeFile file('D:\\wpf\\test\\CalendarSyn\\keystore\\sign.jks')
+            storeFile file(rootDir.path+"\\keystore\\sign.jks")
             storePassword '123456'
             keyAlias 'key0'
             keyPassword '123456'
