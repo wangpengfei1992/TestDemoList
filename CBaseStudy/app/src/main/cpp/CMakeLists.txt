@@ -22,6 +22,10 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
              native-lib.cpp
+        tools/AndroidLog.h
+        tools/sha256.cpp
+        c1test/InterfaceC.cpp
+        c1test/AccInterfaceFasten.cpp
         c1test/helloword.cpp
         ctest/Test1.c)
 

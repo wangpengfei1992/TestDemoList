@@ -17,9 +17,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
+//                cppFlags ""
+                // Passes optional arguments to CMake.
+                arguments "-DANDROID_ARM_NEON=TRUE", "-DANDROID_TOOLCHAIN=clang"
+
+                // Sets optional flags for the C compiler.
+                cFlags "-D_EXAMPLE_C_FLAG1", "-D_EXAMPLE_C_FLAG2"
+
+                // Sets a flag to enable format macro constants for the C++ compiler.
+                cppFlags "-D__STDC_FORMAT_MACROS"
+
+                abiFilters 'armeabi-v7a','arm64-v8a'
             }
         }
+        // 这里添加
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -53,4 +65,24 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+    implementation group: 'xerces', name: 'xercesImpl', version: '2.11.0'
+
+
+
+    // 引入support支持库的multidex库
+    implementation 'com.android.support:multidex:1.0.3'
+    //或androidx支持库的multidex库
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'org.bouncycastle:bcprov-jdk16:1.46'
+    //在Android 原生api是不支持secp256k1算法的，所以要先集成以下库：
+    implementation 'com.madgag.spongycastle:core:1.58.0.0'
+    implementation 'com.madgag.spongycastle:prov:1.54.0.0'
+    implementation 'com.madgag.spongycastle:pkix:1.54.0.0'
+    implementation 'com.madgag.spongycastle:pg:1.54.0.0'
+
+
+    implementation "com.google.code.gson:gson:2.10"
 }
